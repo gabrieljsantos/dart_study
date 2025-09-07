@@ -1,0 +1,6 @@
+{
+  "terminal.integrated.env.windows": {
+    "PATH": "C:\\dart\\dart-sdk\\bin;${env:PATH}"
+  },
+  "dart.sdkPath": "C:\\dart\\dart-sdk"
+}
