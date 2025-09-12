@@ -1,4 +1,4 @@
-import 'dart:math'
+import 'dart:math';
 
 class Vetor2D{
   double x;
@@ -33,6 +33,27 @@ class Particula {
 
   Particula(this.posicao, this.velocidade, this.aceleracao, this.massa);
 
-  metodos...
+  void aplicarForca(Vetor2D forca) {
+    aceleracao.x = forca.x / massa;
+    aceleracao.y = forca.y / massa;
+  }
+
+  void atualizar(double dt) {
+    velocidade.incrementar(aceleracao.x*dt, aceleracao.y*dt);
+    posicao.incrementar(velocidade.x*dt, velocidade.y*dt);
+  }
+
+}
+
+void main (){
+  Particula bola = Particula(Vetor2D(0,0),Vetor2D(0,0),Vetor2D(0,0), 1.0 );
+  bola.velocidade.y = 10;
+  Vetor2D forca = Vetor2D(0, -3);
+  for (int i = 0; i < 100; i++){
+    print(bola.posicao.y);
+    bola.aplicarForca(forca);
+    bola.atualizar(0.1);
+  }
+  
 
 }
